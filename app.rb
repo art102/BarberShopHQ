@@ -32,6 +32,9 @@ post '/visit' do
 	@barber = params[:barber]
 	@color = params[:color]
 
+# name, phone, datestamp, barber, color
+# создаём объект visitor и записываем данные в таблицу clients
+
 	visitor = Client.new
 	visitor.name = @username
 	visitor.phone = @phone
