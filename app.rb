@@ -29,5 +29,11 @@ post '/visit' do
 	@barber = params[:barber]
 	@color = params[:color]
 
-
+	visitor = Client.new
+	visitor.name = @username
+	visitor.phone = @phone
+	visitor.datestamp = @date_time
+	visitor.barber = @barber
+	visitor.color = @color
+	visitor.save
 end
