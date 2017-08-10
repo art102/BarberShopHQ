@@ -26,24 +26,10 @@ end
 
 post '/visit' do
 
-	@username = params[:username]
-	@phone = params[:phone]
-	@date_time = params[:date_time]
-	@barber = params[:barber]
-	@color = params[:color]
-
-# name, phone, datestamp, barber, color
-# создаём объект visitor и записываем данные в таблицу clients
-
-	visitor = Client.new
-	visitor.name = @username
-	visitor.phone = @phone
-	visitor.datestamp = @date_time
-	visitor.barber = @barber
-	visitor.color = @color
+	visitor = Client.new params[:client]
 	visitor.save
-
-	erb "<h3>Вы записались!</h3><p>Будем ждать Вас #{@date_time}.</p>"
+	
+	erb "<h3>Спасибо, вы записались!</h3>"
 end
 
 get '/contacts' do

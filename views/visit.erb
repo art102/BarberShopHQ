@@ -8,7 +8,7 @@
 		<script type="text/javascript">
 
 			$(function() {
-				
+
 				// тут я могу написать любой javascript код, который исполнится
 		  	// после загрузки страницы
 
@@ -26,31 +26,32 @@
 
 		  <div class="form-group">
 		    <label>Ваше имя</label>
-		    <input name="username" type="text" class="form-control" placeholder="Введите имя" value="<%= @username %>">
+		    <input name="client[name]" type="text" class="form-control" placeholder="Введите имя" value="">
 		  </div>
 
 		  <div class="form-group">
 		    <label>Ваш телефон</label>
-		    <input name="phone" type="text" class="form-control" placeholder="Введите телефон" value="<%= @phone %>">
+		    <input name="client[phone]" type="text" class="form-control" placeholder="Введите телефон" value="">
 		  </div>
 
 		   <div class="form-group">
 		    <label>Когда вас ждать?</label>
-		    <input name="date_time" type="text" class="form-control" placeholder="Введите дату и время" value="<%= @date_time %>">
+		    <input name="client[datestamp]" type="text" class="form-control" placeholder="Введите дату и время" value="">
 		  </div>
 
-		  <div class="form-group">
+
+		 <!--  <div class="form-group">
 		    <label>Ваш парикмахер:</label>
 		    <select name="barber" type="text" class="form-control">
 				  <option <%= @barber == 'Walter White' ? 'selected' : '' %>>Walter White</option>
 				  <option <%= @barber == 'Jessie Pinkman' ? 'selected' : '' %>>Jessie Pinkman</option>
 				  <option <%= @barber == 'Gus Fring' ? 'selected' : '' %>>Gus Fring</option>
 				</select>
-		  </div>
+		  </div> -->
 
 		  <div class="form-group">
 		  	<label>В какой цвет хотели бы себя окрасить?:</label>
-			  <select name="color" id="color">
+			  <select name="client[color]" id="color">
 				  <option value="#7bd148">Green</option>
 				  <option value="#5484ed">Bold blue</option>
 				  <option value="#a4bdfc">Blue</option>
