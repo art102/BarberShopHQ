@@ -36,4 +36,10 @@ post '/visit' do
 	visitor.barber = @barber
 	visitor.color = @color
 	visitor.save
+
+	erb "<h2>Вы записались!</h2><p>Будем ждать Вас #{@date_time}.</p>"
+end
+
+get '/contacts' do
+	erb :contacts
 end
