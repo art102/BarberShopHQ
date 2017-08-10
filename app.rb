@@ -40,7 +40,7 @@ post '/visit' do
 	visitor.color = @color
 	visitor.save
 
-	erb "<h2>Вы записались!</h2><p>Будем ждать Вас #{@date_time}.</p>"
+	erb "<h3>Вы записались!</h3><p>Будем ждать Вас #{@date_time}.</p>"
 end
 
 get '/contacts' do
@@ -50,5 +50,10 @@ end
 post '/contacts' do
 	address = params[:address]
 
-	erb "Your typed #{address}"
+	visitor_location = Contact.new
+	visitor_location.address = address
+	visitor_location.save
+
+	erb "<h3>Спасибо! Вы помогаете нам стать лучше!</h3>"
+	redirect to '/visit'
 end
