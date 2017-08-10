@@ -37,12 +37,8 @@ get '/contacts' do
 end
 
 post '/contacts' do
-	address = params[:address]
-
-	visitor_location = Contact.new
-	visitor_location.address = address
+	visitor_location = Contact.new params[:contact]
 	visitor_location.save
 
 	erb "<h3>Спасибо! Вы помогаете нам стать лучше!</h3>"
-	redirect to '/visit'
 end
