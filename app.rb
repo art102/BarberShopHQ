@@ -50,3 +50,7 @@ post '/contacts' do
 
 	erb "<h3>Спасибо! Вы помогаете нам стать лучше!</h3>"
 end
+
+get '/barber/:id' do
+	erb :barber
+end
