@@ -26,11 +26,13 @@ get '/visit' do
 end
 
 post '/visit' do
-
 	visitor = Client.new params[:client]
-	visitor.save
 	
-	erb "<h3>Спасибо, вы записались!</h3>"
+	if visitor.save
+		erb "<h3>Спасибо, вы записались!</h3>"
+	else
+		erb "<h3>Ошибка!</h3>"
+	end
 end
 
 get '/contacts' do
