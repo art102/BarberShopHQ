@@ -17,6 +17,7 @@ class Barber < ActiveRecord::Base
 end
 
 class Contact < ActiveRecord::Base
+	validates :address, presence: true,length: { in: 2..100 }
 end
 
 get '/' do
@@ -41,15 +42,20 @@ post '/visit' do
 end
 
 get '/contacts' do
+	@visitor_location = Contact.new 
 	erb :contacts
 end
 
 post '/contacts' do
-	visitor_location = Contact.new params[:contact]
-	visitor_location.save
-
-	erb "<h3>Спасибо! Вы помогаете нам стать лучше!</h3>"
+	@visitor_location = Contact.new params[:contact]
+	if @visitor_location.save
+		erb "<h3>Спасибо! Вы помогаете нам стать лучше!</h3>"
+	else 
+		@error = @visitor_location.errors.full_messages.first
+		erb :contacts
+	end
 end
+
 
 get '/barber/:id' do
 	erb :barber
